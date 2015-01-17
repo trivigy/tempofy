@@ -13,7 +13,7 @@ class Tempofy():
     def __init__(self):
         pass
 
-    def get_songs(self, tempo=120):
+    def get_song(self, tempo=120):
         api_key = '6AR8ZBJDQ5QTT0KK0'
         format = 'json'
         mintempo = tempo - 10
