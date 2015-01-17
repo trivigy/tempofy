@@ -1,4 +1,4 @@
-#!/private/var/local/venv/tempofy/bin/python
+#!/usr/bin/python
 from flask import Flask, request, Response
 from tempofy import get_song
 
@@ -11,7 +11,6 @@ def song():
         if request.headers['Content-Type'] == 'application/json':
             if len(request.data) != 0:
                 data = json.loads(request.data)
-                print data['key1']
             else:
                 return Response(status = 400)
         # song_id = get_song(130)
