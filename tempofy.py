@@ -1,4 +1,3 @@
-#!/private/var/local/venv/tempofy/bin/python
 import urllib2
 import json
 
@@ -29,5 +28,5 @@ class Tempofy():
         spotify_id = song['tracks'][0]['foreign_id'].split(':')[-1]
         return spotify_id
 
-t = Tempofy()
-t.get_songs()
+# t = Tempofy()
+# t.get_songs()
