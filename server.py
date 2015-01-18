@@ -22,7 +22,7 @@ def song():
                 print song_id
 		end = time.time()
 		print end - start
-                return Response(json.dumps({"song_id": str(song_id)}), status=200)
+                return Response(json.dumps({"song_id": song_id}), status=200)
     else:
         return Response(status=400)
 

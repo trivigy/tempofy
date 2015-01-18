@@ -17,14 +17,12 @@ def spotify(tempo=124):
     songs = parsed_response['response']['songs']
     
     i = 0
-    while True:
-        try: 
-            song = songs[i]
-            spotify_id = song['tracks'][0]['foreign_id'].split(':')[-1]
-            break
-        except Exception as err:
-            i = i + 1
-	    print err
+    try: 
+        song = songs[i]
+        spotify_id = song['tracks'][0]['foreign_id'].split(':')[-1]
+    except Exception as err:
+        print err
+        return None
 
     return spotify_id
 
