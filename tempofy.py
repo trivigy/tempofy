@@ -7,8 +7,9 @@ import time
 def spotify(tempo=124):
     api_key = '6AR8ZBJDQ5QTT0KK0'
     response_format = 'json'
-    mintempo = tempo - 1
-    maxtempo = tempo + 1
+    if tempo > 200: tempo = 200
+    mintempo = int(tempo - 1)
+    maxtempo = int(tempo + 1)
     request = 'http://developer.echonest.com/api/v4/song/search?api_key=%s&format=%s&min_tempo=%s&max_tempo=%s&results=100&style=edm&rank_type=familiarity&sort=tempo-asc&bucket=id:spotify&bucket=tracks' % (api_key, response_format, str(mintempo), str(maxtempo))
 
     response = urllib2.urlopen(request).read()
@@ -23,6 +24,7 @@ def spotify(tempo=124):
             break
         except Exception as err:
             i = i + 1
+	    print err
 
     return spotify_id
 
