@@ -7,7 +7,7 @@ import time
 def spotify(tempo=124):
     api_key = '6AR8ZBJDQ5QTT0KK0'
     response_format = 'json'
-    style = 'pop'
+    style = 'house'
     rank_type = 'familiarity'
     sort = 'tempo-asc'
     if tempo > 200: tempo = 200
