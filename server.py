@@ -2,6 +2,7 @@
 from flask import Flask, request, Response
 from tempofy import spotify
 import json
+import time
 
 app = Flask(__name__)
 
@@ -11,6 +12,7 @@ def song():
     if request.method == 'POST':
         if request.headers['Content-Type'] == 'application/json':
             if len(request.data) != 0:
+		start = time.time()
                 data = json.loads(request.data)
                 bpm1 = find_bpm(data['y'])
                 bpm2 = find_bpm([-a for a in data['y']])
@@ -18,6 +20,8 @@ def song():
                 print final_bpm
                 song_id = spotify(final_bpm)
                 print song_id
+		end = time.time()
+		print end - start
                 return Response(json.dumps({"song_id": str(song_id)}), status=200)
     else:
         return Response(status=400)
