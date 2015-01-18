@@ -15,8 +15,10 @@ def song():
                 bpm1 = find_bpm(data['y'])
                 bpm2 = find_bpm([-a for a in data['y']])
                 final_bpm = min(bpm1, bpm2) - 20
+                print final_bpm
                 song_id = spotify(final_bpm)
-                return Response(json.dumps({"song_id": song_id}), status=200)
+                print song_id
+                return Response(json.dumps({"song_id": str(song_id)}), status=200)
     else:
         return Response(status=400)
 
