@@ -19,7 +19,7 @@ def spotify(tempo=124):
     parsed_response = json.loads(response)
     songs = parsed_response['response']['songs']
     
-    i = 0
+    i = random.random(len(songs))
     try: 
         song = songs[i]
         spotify_id = song['tracks'][0]['foreign_id'].split(':')[-1]
